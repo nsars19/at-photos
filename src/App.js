@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ProgressiveImage from "./components/progressiveImage/ProgressiveImage";
 import ImageFrame from "./components/imageFrame/imageFrame";
 import colors from "./utils/colors";
+import ImageDisplay from "./components/imageDisplay/imageDisplay";
 
 const StyledApp = styled.div`
   .img-wrap {
@@ -41,6 +42,9 @@ const StyledApp = styled.div`
 
 function App() {
   const [keys, setKeys] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
+  const [activeID, setActiveID] = useState(null);
+  const [imgModal, setModalVisibility] = useState(false);
 
   useEffect(() => {
     async function getKeys() {
@@ -56,7 +60,13 @@ function App() {
     keys &&
     keys.slice(0, 30).map(({ _id, key }) => (
       <React.Fragment key={_id}>
-        <ImageFrame>
+        <ImageFrame
+          setKey={setActiveKey}
+          setID={setActiveID}
+          setModalVis={setModalVisibility}
+          imgKey={key}
+          imgID={_id}
+        >
           <ProgressiveImage imgKey={key} />
         </ImageFrame>
       </React.Fragment>
@@ -68,6 +78,12 @@ function App() {
         <h1>Welcome</h1>
       </section>
       <div className="img-wrap">{mapKeys || <div>Loading...</div>}</div>
+      <ImageDisplay
+        vis={imgModal}
+        imgKey={activeKey}
+        imgID={activeID}
+        setVis={setModalVisibility}
+      />
     </StyledApp>
   );
 }
