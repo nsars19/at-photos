@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import colors from "./../../utils/colors";
 import { useInView } from "react-intersection-observer";
 
 const StyledFrame = styled.div`
@@ -20,14 +19,21 @@ const StyledFrame = styled.div`
   }
 `;
 
-export default function ImageFrame({ children }) {
+export default function ImageFrame(props) {
+  const { imgKey, setKey, setModalVis, children, setID, imgID } = props;
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.3,
   });
 
+  const handleClick = () => {
+    setKey(imgKey);
+    setID(imgID);
+    setModalVis(true);
+  };
+
   return (
-    <StyledFrame ref={ref} inView={inView}>
+    <StyledFrame ref={ref} inView={inView} onClick={handleClick}>
       {children}
     </StyledFrame>
   );
