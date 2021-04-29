@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "./../image/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import colors from "./../../utils/colors";
 import ExitButton from "./../exitButton/exitButton";
 import ImageMetrics from "./../imgMetrics/imgMetrics";
