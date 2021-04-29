@@ -29,7 +29,7 @@ const StyledDisplay = styled.div`
     width: 95%;
     position: relative;
     display: flex;
-    align-items: start;
+    flex-direction: column;
     background: ${colors.black};
     border-radius: 8px;
     overflow: hidden;
