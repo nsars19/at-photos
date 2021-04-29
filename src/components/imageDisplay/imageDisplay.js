@@ -34,12 +34,20 @@ const StyledDisplay = styled.div`
     background: ${colors.black};
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 0 1.4px #0008, 0 0 2.5px #0008, 0 0 7px #0008, 0 0 14px #0002;
+  }
+
+  @media (min-width: 540px) {
+    .display-wrap {
+      height: 90%;
+      width: 75%;
+    }
   }
 
   @media (min-width: 1080px) {
     .display-wrap {
       height: 90%;
-      width: 50%;
+      width: 55%;
     }
   }
 `;
