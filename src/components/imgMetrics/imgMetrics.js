@@ -29,7 +29,7 @@ export default function ImageMetrics({ likeCount }) {
       <button onClick={handleLike}>
         <AiFillHeart className="icon" />
       </button>
-      {likeCount ? <p>{likeCount}</p> : <Skeleton />}
+      {likeCount || likeCount !== null ? <p>{likeCount}</p> : <Skeleton />}
     </StyledMetrics>
   );
 }
