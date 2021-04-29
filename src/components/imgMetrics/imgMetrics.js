@@ -21,12 +21,35 @@ const StyledMetrics = styled.div`
   }
 `;
 
-export default function ImageMetrics({ likeCount }) {
-  const handleLike = () => {};
+export default function ImageMetrics({ likeCount, setLikeCount, imgID }) {
+  const handleUnlike = async () => {
+    await fetch("http://localhost:3000/photos/unlike/" + imgID).then(
+      async (res) => {
+        const { likes } = await res.json();
+        setLikeCount(likes);
+        localStorage.setItem(imgID, false);
+      }
+    );
+  };
+
+  const handleLike = async () => {
+    await fetch("http://localhost:3000/photos/like/" + imgID).then(
+      async (res) => {
+        const { likes } = await res.json();
+        setLikeCount(likes);
+        localStorage.setItem(imgID, true);
+      }
+    );
+  };
+
+  const handleClick = () => {
+    if (localStorage.getItem(imgID) === "true") handleUnlike();
+    else handleLike();
+  };
 
   return (
     <StyledMetrics>
-      <button onClick={handleLike}>
+      <button onClick={handleClick}>
         <AiFillHeart className="icon" />
       </button>
       {likeCount || likeCount !== null ? <p>{likeCount}</p> : <Skeleton />}
