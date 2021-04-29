@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
   }
 
   body {
