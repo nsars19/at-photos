@@ -90,7 +90,11 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
       <div className="display-wrap">
         <Image src={imgKey ? baseUrl + imgKey : ""} />
         <ExitButton toggleVis={() => setVis(false)} />
-        <ImageMetrics />
+        <ImageMetrics
+          likeCount={likeCount}
+          setLikeCount={setLikeCount}
+          imgID={imgID}
+        />
       </div>
     </StyledDisplay>
   );
