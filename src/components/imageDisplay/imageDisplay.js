@@ -32,7 +32,7 @@ const StyledDisplay = styled.div`
     display: flex;
     flex-direction: column;
     background: ${colors.black};
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 1.4px #0008, 0 0 2.5px #0008, 0 0 7px #0008, 0 0 14px #0002;
   }
