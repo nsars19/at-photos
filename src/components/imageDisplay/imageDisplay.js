@@ -3,6 +3,7 @@ import Image from "./../image/image";
 import { useEffect } from "react";
 import colors from "./../../utils/colors";
 import ExitButton from "./../exitButton/exitButton";
+import ImageMetrics from "./../imgMetrics/imgMetrics";
 
 const StyledDisplay = styled.div`
   display: ${({ vis }) => (vis ? "grid" : "none")};
@@ -68,6 +69,7 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
       <div className="display-wrap">
         <Image src={imgKey ? baseUrl + imgKey : ""} />
         <ExitButton toggleVis={() => setVis(false)} />
+        <ImageMetrics />
       </div>
     </StyledDisplay>
   );
