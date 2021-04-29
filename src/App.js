@@ -1,22 +1,16 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProgressiveImage from "./components/progressiveImage/ProgressiveImage";
+import ImageFrame from "./components/imageFrame/imageFrame";
 
 const StyledApp = styled.div`
-  .img-load {
-    height: 400px;
-  }
-
-  img {
-    height: 100%;
-    transition: filter 300ms ease-in;
-  }
-
-  .image {
-    height: 400px;
-    width: 400px;
-    object-fit: fill;
-  }
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-flow: row dense;
+  justify-content: center;
+  width: 99%;
+  margin: 0 auto;
 `;
 
 function App() {
@@ -34,10 +28,12 @@ function App() {
 
   const mapKeys =
     keys &&
-    keys.slice(0, 9).map(({ _id, key }) => (
-      <div key={_id}>
-        <ProgressiveImage imgKey={key} />
-      </div>
+    keys.slice(0, 30).map(({ _id, key }) => (
+      <React.Fragment key={_id}>
+        <ImageFrame>
+          <ProgressiveImage imgKey={key} />
+        </ImageFrame>
+      </React.Fragment>
     ));
 
   return <StyledApp>{mapKeys || <div>Loading...</div>}</StyledApp>;
