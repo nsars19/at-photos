@@ -72,6 +72,17 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
     };
   });
 
+  useEffect(() => {
+    async function getImageData() {
+      const res = await fetch("http://localhost:3000/photos/" + imgID);
+      const data = await res.json();
+
+      setLikeCount(data.likes);
+    }
+
+    if (imgID) getImageData();
+  }, [imgID]);
+
   return (
     <StyledDisplay vis={vis} className="img-frame">
       <div className="display-wrap">
