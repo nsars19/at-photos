@@ -6,7 +6,7 @@ import Skeleton from "react-loading-skeleton";
 const StyledMetrics = styled.div`
   padding: 10px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   .icon {
     cursor: pointer;
