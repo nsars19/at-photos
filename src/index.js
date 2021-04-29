@@ -16,7 +16,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${colors.black}
+    background: ${colors.black};
+
+    button {
+      border-style: none;
+      border: none;
+      background: none;
+    }
   }
 `;
 
