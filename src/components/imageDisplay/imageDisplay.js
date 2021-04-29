@@ -58,6 +58,7 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
 
   const toggleModalOff = (e) => {
     if (e.target.nodeName === "path") return;
+    if (e.target.nodeName === "svg") return;
     if (e.target.className.includes("img-frame")) setVis(false);
   };
 
