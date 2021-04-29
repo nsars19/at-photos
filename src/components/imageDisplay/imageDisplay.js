@@ -54,6 +54,7 @@ const StyledDisplay = styled.div`
 
 export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
   const baseUrl = "http://localhost:3000/images/";
+  const [likeCount, setLikeCount] = useState(null);
 
   const toggleModalOff = (e) => {
     if (e.target.nodeName === "path") return;
