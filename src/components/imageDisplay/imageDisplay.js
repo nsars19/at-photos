@@ -88,6 +88,7 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
       const data = await res.json();
 
       setLikeCount(data.likes);
+      setComments(data.comments);
     }
 
     if (imgID) getImageData();
