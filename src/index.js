@@ -22,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
     input[type="submit"] {
       border-style: none;
       border: none;
-      background: none;
+      background: ${colors.blue};
+      color: ${colors.lightBlue};
     }
   }
 `;
