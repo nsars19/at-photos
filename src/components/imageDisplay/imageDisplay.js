@@ -118,6 +118,7 @@ export default function ImageDisplay(props) {
           />
           <Comments comments={comments} />
           <CommentForm imgID={imgID} setComments={setComments} />
+          <Comments comments={comments} setComments={setComments} />
         </div>
       </div>
     </StyledDisplay>
