@@ -46,6 +46,11 @@ function App() {
   const [activeID, setActiveID] = useState(null);
   const [imgModal, setModalVisibility] = useState(false);
 
+  const clearActive = () => {
+    setActiveID(null);
+    setActiveKey(null);
+  };
+
   useEffect(() => {
     async function getKeys() {
       const res = await fetch("http://localhost:3000/photos");
@@ -83,6 +88,7 @@ function App() {
         imgKey={activeKey}
         imgID={activeID}
         setVis={setModalVisibility}
+        clearActive={clearActive}
       />
     </StyledApp>
   );

@@ -60,7 +60,9 @@ const StyledDisplay = styled.div`
   }
 `;
 
-export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
+export default function ImageDisplay(props) {
+  const { vis, setVis, imgKey, imgID, clearActive } = props;
+
   const baseUrl = "http://localhost:3000/images/";
   const [likeCount, setLikeCount] = useState(null);
   const [comments, setComments] = useState([]);
@@ -68,6 +70,7 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
   const clearModal = () => {
     setVis(false);
     setComments([]);
+    clearActive();
   };
 
   const toggleModalOff = (e) => {
