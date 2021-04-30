@@ -116,7 +116,6 @@ export default function ImageDisplay(props) {
             setLikeCount={setLikeCount}
             imgID={imgID}
           />
-          <Comments comments={comments} />
           <CommentForm imgID={imgID} setComments={setComments} />
           <Comments comments={comments} setComments={setComments} />
         </div>
