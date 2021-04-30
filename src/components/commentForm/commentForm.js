@@ -3,11 +3,9 @@ import styled from "styled-components";
 import colors from "./../../utils/colors";
 
 const StyledForm = styled.form`
-  width: 94%;
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
 
@@ -47,7 +45,7 @@ const StyledForm = styled.form`
   }
 
   @media (min-width: 768px) {
-    width: 96%;
+    width: 100%;
   }
 `;
 

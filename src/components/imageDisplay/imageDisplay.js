@@ -19,7 +19,7 @@ const StyledDisplay = styled.div`
 
   img {
     height: fit-content;
-    max-height: 600px;
+    max-height: 550px;
     object-fit: cover;
   }
 
@@ -41,6 +41,8 @@ const StyledDisplay = styled.div`
 
   .content-wrap {
     height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
   }
 
   @media (min-width: 540px) {
