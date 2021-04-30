@@ -8,6 +8,10 @@ const StyledMetrics = styled.div`
   display: flex;
   align-items: flex-start;
 
+  button {
+    background: none;
+  }
+
   .icon {
     cursor: pointer;
     font-size: 1.5rem;

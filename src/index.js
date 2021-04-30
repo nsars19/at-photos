@@ -18,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: ${colors.black};
 
-    button {
+    button,
+    input[type="submit"] {
       border-style: none;
       border: none;
       background: none;
