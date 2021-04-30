@@ -57,6 +57,8 @@ export default function CommentForm({ imgID, setComments }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (text === "") return;
+
     const body = JSON.stringify({ text, id: imgID });
 
     const res = await fetch("http://localhost:3000/comments", {
