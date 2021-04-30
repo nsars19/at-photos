@@ -55,11 +55,19 @@ const StyledDisplay = styled.div`
 export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
   const baseUrl = "http://localhost:3000/images/";
   const [likeCount, setLikeCount] = useState(null);
+  const [comments, setComments] = useState([]);
+
+  const clearModal = () => {
+    setVis(false);
+    setComments([]);
+  };
 
   const toggleModalOff = (e) => {
     if (e.target.nodeName === "path") return;
     if (e.target.nodeName === "svg") return;
-    if (e.target.className.includes("img-frame")) setVis(false);
+    if (e.target.className.includes("img-frame")) {
+      clearModal();
+    }
   };
 
   useEffect(() => {
