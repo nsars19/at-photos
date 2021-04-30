@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import colors from "./../../utils/colors";
 import ExitButton from "./../exitButton/exitButton";
 import ImageMetrics from "./../imgMetrics/imgMetrics";
+import Comments from "./../comments/comments";
+import CommentForm from "./../commentForm/commentForm";
 
 const StyledDisplay = styled.div`
   display: ${({ vis }) => (vis ? "grid" : "none")};
