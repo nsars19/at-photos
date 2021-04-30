@@ -37,6 +37,10 @@ const StyledDisplay = styled.div`
     box-shadow: 0 0 1.4px #0008, 0 0 2.5px #0008, 0 0 7px #0008, 0 0 14px #0002;
   }
 
+  .content-wrap {
+    height: 100%;
+  }
+
   @media (min-width: 540px) {
     .display-wrap {
       height: 90%;
@@ -98,12 +102,16 @@ export default function ImageDisplay({ vis, setVis, imgKey, imgID }) {
     <StyledDisplay vis={vis} className="img-frame">
       <div className="display-wrap">
         <Image src={imgKey ? baseUrl + imgKey : ""} />
-        <ExitButton toggleVis={() => setVis(false)} />
-        <ImageMetrics
-          likeCount={likeCount}
-          setLikeCount={setLikeCount}
-          imgID={imgID}
-        />
+        <div className="content-wrap">
+          <ExitButton toggleVis={clearModal} />
+          <ImageMetrics
+            likeCount={likeCount}
+            setLikeCount={setLikeCount}
+            imgID={imgID}
+          />
+          <Comments comments={comments} />
+          <CommentForm imgID={imgID} setComments={setComments} />
+        </div>
       </div>
     </StyledDisplay>
   );
