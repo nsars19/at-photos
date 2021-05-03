@@ -20,7 +20,17 @@ const StyledFrame = styled.div`
 `;
 
 export default function ImageFrame(props) {
-  const { imgKey, setKey, setModalVis, children, setID, imgID } = props;
+  const {
+    imgKey,
+    setKey,
+    setModalVis,
+    children,
+    setID,
+    imgID,
+    setActiveIdx,
+    getActiveIndex,
+  } = props;
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -29,6 +39,7 @@ export default function ImageFrame(props) {
   const handleClick = () => {
     setKey(imgKey);
     setID(imgID);
+    setActiveIdx(getActiveIndex(imgKey));
     setModalVis(true);
   };
 

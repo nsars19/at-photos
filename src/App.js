@@ -44,11 +44,35 @@ function App() {
   const [keys, setKeys] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
   const [activeID, setActiveID] = useState(null);
+  const [activeIdx, setActiveIdx] = useState(getActiveIndex());
   const [imgModal, setModalVisibility] = useState(false);
+
+  function getActiveIndex(key) {
+    if (!keys || !key) return null;
+
+    return keys.map((k) => k.key).indexOf(key);
+  }
+
+  const previousImage = () => {
+    const prevIdx = activeIdx === 0 ? 0 : activeIdx - 1;
+    const prevImg = keys[prevIdx];
+    setActiveKey(prevImg.key);
+    setActiveID(prevImg._id);
+    setActiveIdx(prevIdx);
+  };
+
+  const nextImage = () => {
+    const nextIdx = activeIdx === keys.length - 1 ? activeIdx : activeIdx + 1;
+    const nextImg = keys[nextIdx];
+    setActiveKey(nextImg.key);
+    setActiveID(nextImg._id);
+    setActiveIdx(nextIdx);
+  };
 
   const clearActive = () => {
     setActiveID(null);
     setActiveKey(null);
+    setActiveIdx(null);
   };
 
   useEffect(() => {
@@ -61,11 +85,27 @@ function App() {
     getKeys();
   }, []);
 
+  useEffect(() => {
+    window.onkeydown = handleKeyPress;
+
+    function handleKeyPress(e) {
+      if (e.keyCode === 37) previousImage();
+      if (e.keyCode === 39) nextImage();
+    }
+
+    return () => {
+      window.keydown = null;
+    };
+  });
+
   const mapKeys =
     keys &&
-    keys.slice(0, 30).map(({ _id, key }) => (
+    keys.slice(20, 25).map(({ _id, key }) => (
       <React.Fragment key={_id}>
         <ImageFrame
+          activeIdx={activeIdx}
+          setActiveIdx={setActiveIdx}
+          getActiveIndex={getActiveIndex}
           setKey={setActiveKey}
           setID={setActiveID}
           setModalVis={setModalVisibility}
@@ -89,6 +129,8 @@ function App() {
         imgID={activeID}
         setVis={setModalVisibility}
         clearActive={clearActive}
+        prevImg={previousImage}
+        nextImg={nextImage}
       />
     </StyledApp>
   );
