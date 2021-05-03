@@ -143,7 +143,7 @@ function App() {
 
   const mapKeys =
     keys &&
-    keys.slice(0, 55).map(({ _id, key }) => (
+    keys.map(({ _id, key }) => (
       <React.Fragment key={_id}>
         <ImageFrame
           activeIdx={activeIdx}
