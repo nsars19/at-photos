@@ -56,24 +56,27 @@ const StyledDisplay = styled.div`
     cursor: pointer;
     position: absolute;
     top: 0;
-  }
+    outline: none;
 
-  .prev {
-    left: 0;
-
-    &:hover .icon-left {
-      color: ${colors.blue};
-      transition: color 50ms ease;
-    }
-  }
-
-  .next {
-    right: 0;
-
+    &:hover .icon-left,
     &:hover .icon-right {
       color: ${colors.blue};
       transition: color 50ms ease;
     }
+
+    &:focus .icon-left,
+    &:focus .icon-right {
+      color: ${colors.blue};
+      transition: color 50ms ease;
+    }
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
   }
 
   .icon-left,
