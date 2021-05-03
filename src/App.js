@@ -49,7 +49,7 @@ const StyledApp = styled.div`
     }
 
     .icon-down {
-      font-size: 40px;
+      font-size: 50px;
       cursor: pointer;
     }
   }
