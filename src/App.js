@@ -5,6 +5,8 @@ import ImageFrame from "./components/imageFrame/imageFrame";
 import colors from "./utils/colors";
 import ImageDisplay from "./components/imageDisplay/imageDisplay";
 import at from "./assets/at.png";
+import { BsChevronDown } from "react-icons/bs";
+import { Element, scroller } from "react-scroll";
 
 const StyledApp = styled.div`
   .img-wrap {
@@ -35,6 +37,20 @@ const StyledApp = styled.div`
       max-width: 500px;
       text-align: center;
       font-size: 1.5em;
+    }
+
+    .icon-wrap {
+      height: 100%;
+      width: 100%;
+      padding-bottom: 30px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .icon-down {
+      font-size: 40px;
+      cursor: pointer;
     }
   }
 
@@ -87,6 +103,13 @@ function App() {
     setActiveIdx(null);
   };
 
+  const scrollToTarget = () => {
+    scroller.scrollTo("scroll-target", {
+      smooth: "easeOutCubic",
+      offset: -20,
+    });
+  };
+
   useEffect(() => {
     async function getKeys() {
       const res = await fetch(
@@ -114,7 +137,7 @@ function App() {
 
   const mapKeys =
     keys &&
-    keys.slice(20, 25).map(({ _id, key }) => (
+    keys.slice(0, 55).map(({ _id, key }) => (
       <React.Fragment key={_id}>
         <ImageFrame
           activeIdx={activeIdx}
@@ -139,8 +162,13 @@ function App() {
           A collection of some of the photos I took during my 2019 thru-hike
           attempt
         </h1>
+        <div className="icon-wrap">
+          <BsChevronDown className="icon-down" onClick={scrollToTarget} />
+        </div>
       </section>
-      <div className="img-wrap">{mapKeys || <div>Loading...</div>}</div>
+      <Element name="scroll-target">
+        <div className="img-wrap">{mapKeys || <div>Loading...</div>}</div>
+      </Element>
       <ImageDisplay
         vis={imgModal}
         imgKey={activeKey}
