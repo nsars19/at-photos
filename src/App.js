@@ -4,6 +4,7 @@ import ProgressiveImage from "./components/progressiveImage/ProgressiveImage";
 import ImageFrame from "./components/imageFrame/imageFrame";
 import colors from "./utils/colors";
 import ImageDisplay from "./components/imageDisplay/imageDisplay";
+import at from "./assets/at.png";
 
 const StyledApp = styled.div`
   .img-wrap {
@@ -18,11 +19,22 @@ const StyledApp = styled.div`
 
   section {
     height: 100vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     color: ${colors.blue};
+
+    img {
+      margin-top: 50px;
+    }
+
     h1 {
-      font-size: 2em;
+      margin: 0 30px;
+      margin-top: 70px;
+      max-width: 500px;
+      text-align: center;
+      font-size: 1.5em;
     }
   }
 
@@ -120,7 +132,11 @@ function App() {
   return (
     <StyledApp>
       <section>
-        <h1>Welcome</h1>
+        <img src={at} alt={"AT"} />
+        <h1>
+          A collection of some of the photos I took during my 2019 thru-hike
+          attempt
+        </h1>
       </section>
       <div className="img-wrap">{mapKeys || <div>Loading...</div>}</div>
       <ImageDisplay
