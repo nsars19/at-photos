@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import colors from "./../../utils/colors";
 import ExitButton from "./../exitButton/exitButton";
 import ImageMetrics from "./../imgMetrics/imgMetrics";
-import Comments from "./../comments/comments";
-import CommentForm from "./../commentForm/commentForm";
 
 const StyledDisplay = styled.div`
   display: ${({ vis }) => (vis ? "grid" : "none")};
@@ -19,7 +17,7 @@ const StyledDisplay = styled.div`
 
   img {
     height: fit-content;
-    max-height: 550px;
+    max-height: 90vh;
     object-fit: cover;
   }
 
@@ -28,8 +26,7 @@ const StyledDisplay = styled.div`
   }
 
   .display-wrap {
-    height: 95%;
-    width: 95%;
+    margin: auto 10px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -44,20 +41,6 @@ const StyledDisplay = styled.div`
     overflow-y: scroll;
     scrollbar-width: none;
   }
-
-  @media (min-width: 540px) {
-    .display-wrap {
-      height: 90%;
-      width: 75%;
-    }
-  }
-
-  @media (min-width: 1080px) {
-    .display-wrap {
-      height: 90%;
-      width: 55%;
-    }
-  }
 `;
 
 export default function ImageDisplay(props) {
@@ -65,11 +48,9 @@ export default function ImageDisplay(props) {
 
   const baseUrl = "http://localhost:3000/images/";
   const [likeCount, setLikeCount] = useState(null);
-  const [comments, setComments] = useState([]);
 
   const clearModal = () => {
     setVis(false);
-    setComments([]);
     clearActive();
   };
 
@@ -99,7 +80,6 @@ export default function ImageDisplay(props) {
       const data = await res.json();
 
       setLikeCount(data.likes);
-      setComments(data.comments);
     }
 
     if (imgID) getImageData();
@@ -116,8 +96,6 @@ export default function ImageDisplay(props) {
             setLikeCount={setLikeCount}
             imgID={imgID}
           />
-          <CommentForm imgID={imgID} setComments={setComments} />
-          <Comments comments={comments} setComments={setComments} />
         </div>
       </div>
     </StyledDisplay>
