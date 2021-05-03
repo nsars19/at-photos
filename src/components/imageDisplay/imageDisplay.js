@@ -27,8 +27,7 @@ const StyledDisplay = styled.div`
   }
 
   .display-wrap {
-    margin: auto 15px;
-    margin-left: 5px;
+    margin: auto 5px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -36,6 +35,12 @@ const StyledDisplay = styled.div`
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 1.4px #0008, 0 0 2.5px #0008, 0 0 7px #0008, 0 0 14px #0002;
+  }
+
+  @media (max-width: 768px) {
+    .display-wrap {
+      margin: auto 15px;
+    }
   }
 
   .content-wrap {
