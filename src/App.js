@@ -51,6 +51,12 @@ const StyledApp = styled.div`
     .icon-down {
       font-size: 50px;
       cursor: pointer;
+
+      &:hover,
+      &:active {
+        color: ${colors.lightBlue};
+        transition: color 300ms ease;
+      }
     }
   }
 
