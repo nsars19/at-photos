@@ -31,7 +31,7 @@ export default function ImageMetrics({ likeCount, setLikeCount, imgID }) {
       async (res) => {
         const { likes } = await res.json();
         setLikeCount(likes);
-        localStorage.setItem(imgID, false);
+        localStorage.removeItem(imgID);
       }
     );
   };
