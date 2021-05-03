@@ -60,7 +60,9 @@ const StyledDisplay = styled.div`
     outline: none;
 
     &:hover .icon-left,
-    &:hover .icon-right {
+    &:hover .icon-right,
+    &:active .icon-left,
+    &:active .icon-right {
       color: ${colors.blue};
       transition: color 50ms ease;
     }
