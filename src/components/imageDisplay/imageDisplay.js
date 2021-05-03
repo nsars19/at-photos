@@ -92,6 +92,10 @@ const StyledDisplay = styled.div`
     font-size: 40px;
     color: ${colors.black}aa;
   }
+
+  @media (max-width: 1068px) {
+    width: fit-content;
+  }
 `;
 
 export default function ImageDisplay(props) {
