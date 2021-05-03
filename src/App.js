@@ -42,7 +42,7 @@ const StyledApp = styled.div`
     .icon-wrap {
       height: 100%;
       width: 100%;
-      padding-bottom: 30px;
+      padding-bottom: 80px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
