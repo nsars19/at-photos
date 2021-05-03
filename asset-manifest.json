@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/nsars19.github.io/at-photos/static/js/main.154ed6f8.chunk.js",
-    "main.js.map": "/nsars19.github.io/at-photos/static/js/main.154ed6f8.chunk.js.map",
-    "runtime-main.js": "/nsars19.github.io/at-photos/static/js/runtime-main.d837c29e.js",
-    "runtime-main.js.map": "/nsars19.github.io/at-photos/static/js/runtime-main.d837c29e.js.map",
-    "static/js/2.bb6376ad.chunk.js": "/nsars19.github.io/at-photos/static/js/2.bb6376ad.chunk.js",
-    "static/js/2.bb6376ad.chunk.js.map": "/nsars19.github.io/at-photos/static/js/2.bb6376ad.chunk.js.map",
-    "index.html": "/nsars19.github.io/at-photos/index.html",
-    "static/js/2.bb6376ad.chunk.js.LICENSE.txt": "/nsars19.github.io/at-photos/static/js/2.bb6376ad.chunk.js.LICENSE.txt",
-    "static/media/at.7784889c.png": "/nsars19.github.io/at-photos/static/media/at.7784889c.png"
+    "main.js": "/at-photos/static/js/main.154ed6f8.chunk.js",
+    "main.js.map": "/at-photos/static/js/main.154ed6f8.chunk.js.map",
+    "runtime-main.js": "/at-photos/static/js/runtime-main.6dda8f6d.js",
+    "runtime-main.js.map": "/at-photos/static/js/runtime-main.6dda8f6d.js.map",
+    "static/js/2.9c76d0f6.chunk.js": "/at-photos/static/js/2.9c76d0f6.chunk.js",
+    "static/js/2.9c76d0f6.chunk.js.map": "/at-photos/static/js/2.9c76d0f6.chunk.js.map",
+    "index.html": "/at-photos/index.html",
+    "static/js/2.9c76d0f6.chunk.js.LICENSE.txt": "/at-photos/static/js/2.9c76d0f6.chunk.js.LICENSE.txt",
+    "static/media/at.7784889c.png": "/at-photos/static/media/at.7784889c.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.d837c29e.js",
-    "static/js/2.bb6376ad.chunk.js",
+    "static/js/runtime-main.6dda8f6d.js",
+    "static/js/2.9c76d0f6.chunk.js",
     "static/js/main.154ed6f8.chunk.js"
   ]
 }
