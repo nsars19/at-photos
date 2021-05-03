@@ -7,8 +7,8 @@ import ImageMetrics from "./../imgMetrics/imgMetrics";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 const StyledDisplay = styled.div`
-  display: ${({ vis }) => (vis ? "grid" : "none")};
-  place-items: center;
+  display: ${({ vis }) => (vis ? "flex" : "none")};
+  justify-content: center;
   position: fixed;
   top: 0;
   z-index: 3;
@@ -27,7 +27,8 @@ const StyledDisplay = styled.div`
   }
 
   .display-wrap {
-    margin: auto 10px;
+    margin: auto 15px;
+    margin-left: 5px;
     position: relative;
     display: flex;
     flex-direction: column;
