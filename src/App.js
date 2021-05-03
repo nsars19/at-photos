@@ -164,10 +164,7 @@ function App() {
     <StyledApp>
       <section>
         <img src={at} alt={"AT"} />
-        <h1>
-          A collection of some of the photos I took during my 2019 thru-hike
-          attempt
-        </h1>
+        <h1>A collection of photos taken during my 2019 thru-hike attempt</h1>
         <div className="icon-wrap">
           <BsChevronDown className="icon-down" onClick={scrollToTarget} />
         </div>
