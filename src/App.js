@@ -89,7 +89,9 @@ function App() {
 
   useEffect(() => {
     async function getKeys() {
-      const res = await fetch("http://localhost:3000/photos");
+      const res = await fetch(
+        "https://stormy-shore-10716.herokuapp.com/photos"
+      );
       const data = await res.json();
       setKeys(data);
     }

@@ -101,7 +101,7 @@ const StyledDisplay = styled.div`
 export default function ImageDisplay(props) {
   const { vis, setVis, imgKey, imgID, clearActive, prevImg, nextImg } = props;
 
-  const baseUrl = "http://localhost:3000/images/";
+  const baseUrl = "https://stormy-shore-10716.herokuapp.com/images/";
   const [likeCount, setLikeCount] = useState(null);
 
   const clearModal = () => {
@@ -131,7 +131,9 @@ export default function ImageDisplay(props) {
 
   useEffect(() => {
     async function getImageData() {
-      const res = await fetch("http://localhost:3000/photos/" + imgID);
+      const res = await fetch(
+        "https://stormy-shore-10716.herokuapp.com/photos/" + imgID
+      );
       const data = await res.json();
 
       setLikeCount(data.likes);

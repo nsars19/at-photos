@@ -27,23 +27,23 @@ const StyledMetrics = styled.div`
 
 export default function ImageMetrics({ likeCount, setLikeCount, imgID }) {
   const handleUnlike = async () => {
-    await fetch("http://localhost:3000/photos/unlike/" + imgID).then(
-      async (res) => {
-        const { likes } = await res.json();
-        setLikeCount(likes);
-        localStorage.removeItem(imgID);
-      }
-    );
+    await fetch(
+      "https://stormy-shore-10716.herokuapp.com/photos/unlike/" + imgID
+    ).then(async (res) => {
+      const { likes } = await res.json();
+      setLikeCount(likes);
+      localStorage.removeItem(imgID);
+    });
   };
 
   const handleLike = async () => {
-    await fetch("http://localhost:3000/photos/like/" + imgID).then(
-      async (res) => {
-        const { likes } = await res.json();
-        setLikeCount(likes);
-        localStorage.setItem(imgID, true);
-      }
-    );
+    await fetch(
+      "https://stormy-shore-10716.herokuapp.com/photos/like/" + imgID
+    ).then(async (res) => {
+      const { likes } = await res.json();
+      setLikeCount(likes);
+      localStorage.setItem(imgID, true);
+    });
   };
 
   const handleClick = () => {

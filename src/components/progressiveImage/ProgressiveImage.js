@@ -5,8 +5,8 @@ export default function ProgImage({ imgKey }) {
   return (
     <ProgressiveImage
       delay={1000}
-      src={`http://localhost:3000/images/${imgKey}`}
-      placeholder={`http://localhost:3000/images/tiny-${imgKey}`}
+      src={`https://stormy-shore-10716.herokuapp.com/images/${imgKey}`}
+      placeholder={`https://stormy-shore-10716.herokuapp.com/images/tiny-${imgKey}`}
     >
       {(src, loading) => (
         <Image

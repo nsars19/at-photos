@@ -44,9 +44,12 @@ export default function Comments({ comments, setComments }) {
   });
 
   const deleteComment = async (id) => {
-    const res = await fetch("http://localhost:3000/comments/" + id, {
-      method: "delete",
-    });
+    const res = await fetch(
+      "https://stormy-shore-10716.herokuapp.com/comments/" + id,
+      {
+        method: "delete",
+      }
+    );
     const data = await res.json();
     setComments(reverseArray(data[0].comments));
   };

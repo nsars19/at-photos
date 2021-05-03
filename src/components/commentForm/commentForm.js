@@ -59,11 +59,14 @@ export default function CommentForm({ imgID, setComments }) {
 
     const body = JSON.stringify({ text, id: imgID });
 
-    const res = await fetch("http://localhost:3000/comments", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body,
-    });
+    const res = await fetch(
+      "https://stormy-shore-10716.herokuapp.com/comments",
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body,
+      }
+    );
 
     const data = await res.json();
 
