@@ -7,6 +7,8 @@ import ImageDisplay from "./components/imageDisplay/imageDisplay";
 import at from "./assets/at.png";
 import { BsChevronDown } from "react-icons/bs";
 import { Element, scroller } from "react-scroll";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Spinner from "./components/spinner/spinner";
 
 const StyledApp = styled.div`
   .img-wrap {
@@ -76,6 +78,7 @@ const StyledApp = styled.div`
 
 function App() {
   const [keys, setKeys] = useState(null);
+  const [visibleKeys, setVisibleKeys] = useState([]);
   const [activeKey, setActiveKey] = useState(null);
   const [activeID, setActiveID] = useState(null);
   const [activeIdx, setActiveIdx] = useState(getActiveIndex());
@@ -123,6 +126,7 @@ function App() {
       );
       const data = await res.json();
       setKeys(data);
+      setVisibleKeys(data.slice(0, 10));
     }
 
     getKeys();
@@ -141,24 +145,37 @@ function App() {
     };
   });
 
-  const mapKeys =
-    keys &&
-    keys.map(({ _id, key }) => (
-      <React.Fragment key={_id}>
-        <ImageFrame
-          activeIdx={activeIdx}
-          setActiveIdx={setActiveIdx}
-          getActiveIndex={getActiveIndex}
-          setKey={setActiveKey}
-          setID={setActiveID}
-          setModalVis={setModalVisibility}
-          imgKey={key}
-          imgID={_id}
-        >
-          <ProgressiveImage imgKey={key} />
-        </ImageFrame>
-      </React.Fragment>
-    ));
+  const fetchNextKeySet = () => {
+    setVisibleKeys(keys.slice(0, visibleKeys.length + 10));
+  };
+
+  const mapKeys = keys && (
+    <InfiniteScroll
+      dataLength={visibleKeys.length}
+      next={fetchNextKeySet}
+      hasMore={visibleKeys.length !== keys.length}
+      loader={<Spinner size={30} />}
+      className="img-wrap"
+      name="scroll-target"
+    >
+      {visibleKeys.map(({ _id, key }) => (
+        <React.Fragment key={_id}>
+          <ImageFrame
+            activeIdx={activeIdx}
+            setActiveIdx={setActiveIdx}
+            getActiveIndex={getActiveIndex}
+            setKey={setActiveKey}
+            setID={setActiveID}
+            setModalVis={setModalVisibility}
+            imgKey={key}
+            imgID={_id}
+          >
+            <ProgressiveImage imgKey={key} />
+          </ImageFrame>
+        </React.Fragment>
+      ))}
+    </InfiniteScroll>
+  );
 
   return (
     <StyledApp>
