@@ -169,9 +169,8 @@ function App() {
           <BsChevronDown className="icon-down" onClick={scrollToTarget} />
         </div>
       </section>
-      <Element name="scroll-target">
-        <div className="img-wrap">{mapKeys || <div>Loading...</div>}</div>
-      </Element>
+      <Element name="scroll-target" />
+      {mapKeys || <Spinner />}
       <ImageDisplay
         vis={imgModal}
         imgKey={activeKey}
