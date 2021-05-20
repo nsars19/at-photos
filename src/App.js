@@ -4,7 +4,7 @@ import ProgressiveImage from "./components/progressiveImage/ProgressiveImage";
 import ImageFrame from "./components/imageFrame/imageFrame";
 import colors from "./utils/colors";
 import ImageDisplay from "./components/imageDisplay/imageDisplay";
-import at from "./assets/at.png";
+import cover from "./assets/cover.jpg";
 import { BsChevronDown } from "react-icons/bs";
 import { Element, scroller } from "react-scroll";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -21,13 +21,34 @@ const StyledApp = styled.div`
     margin: 0 auto;
   }
 
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      ${colors.black}cc 1%,
+      transparent 85%,
+      ${colors.black}aa
+    );
+  }
+
   section {
+    background-image: url(${cover});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    color: ${colors.blue};
+    color: ${colors.lightBlue};
+    margin-bottom: 10px;
 
     img {
       margin-top: 50px;
@@ -38,31 +59,46 @@ const StyledApp = styled.div`
       margin-top: 70px;
       max-width: 500px;
       text-align: center;
-      font-size: 1.5em;
+      font-size: 1.5rem;
+      z-index: 2;
     }
 
     .icon-wrap {
+      color: ${colors.lightBlue};
       height: 100%;
       width: 100%;
       padding-bottom: 80px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      z-index: 2;
     }
 
     .icon-down {
-      font-size: 50px;
+      font-size: 70px;
       cursor: pointer;
 
       &:hover,
       &:active {
-        color: ${colors.lightBlue};
+        color: ${colors.blue};
         transition: color 300ms ease;
       }
     }
   }
 
   @media (min-width: 1080px) {
+    section h1 {
+      font-size: 2rem;
+    }
+
+    background: linear-gradient(
+      to bottom,
+      ${colors.black}cc 1%,
+      transparent 65%,
+      transparent 85%,
+      ${colors.black}aa
+    );
+
     .img-wrap {
       width: 80%;
     }
@@ -180,7 +216,7 @@ function App() {
   return (
     <StyledApp>
       <section>
-        <img src={at} alt={"AT"} />
+        <div className="overlay" />
         <h1>A collection of photos taken during my 2019 thru-hike attempt</h1>
         <div className="icon-wrap">
           <BsChevronDown className="icon-down" onClick={scrollToTarget} />
