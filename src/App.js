@@ -217,7 +217,10 @@ function App() {
     <StyledApp>
       <section>
         <div className="overlay" />
-        <h1>A collection of photos taken during my 2019 thru-hike attempt</h1>
+        <h1>
+          A collection of photos taken during my 2019 Appalachian Trail
+          thru-hike attempt
+        </h1>
         <div className="icon-wrap">
           <BsChevronDown className="icon-down" onClick={scrollToTarget} />
         </div>
